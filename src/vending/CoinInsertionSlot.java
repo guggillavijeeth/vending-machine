@@ -13,7 +13,7 @@ public class CoinInsertionSlot {
 			if (nativeDepositBox.amountMoney() < mostExpensive)
 				nativeDepositBox.setQuarters(1);
 			else {
-				System.out.println(quarters-i + " quarters not accepted because money "
+				System.out.println(quarters-i + " quarter(s) not accepted because money "
 						+"entered already exceeds maximum transaction cost.");
 				nativeChangeReceiver.receiveQuarters(quarters-i);
 				break;
@@ -26,7 +26,7 @@ public class CoinInsertionSlot {
 			if (nativeDepositBox.amountMoney() < mostExpensive)
 				nativeDepositBox.setDimes(1);
 			else {
-				System.out.println(dimes-i + " dimes not accepted because money "
+				System.out.println(dimes-i + " dime(s) not accepted because money "
 						+"entered already exceeds maximum transaction cost.");
 				nativeChangeReceiver.receiveDimes(dimes-i);
 				break;
@@ -39,7 +39,7 @@ public class CoinInsertionSlot {
 			if (nativeDepositBox.amountMoney() < mostExpensive)
 				nativeDepositBox.setNickels(1);
 			else {
-				System.out.println(nickels-i + " nickels not accepted because money "
+				System.out.println(nickels-i + " nickel(s) not accepted because money "
 						+"entered already exceeds maximum transaction cost.");
 				nativeChangeReceiver.receiveNickels(nickels-i);
 				break;

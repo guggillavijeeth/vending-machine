@@ -61,9 +61,9 @@ public class VendingMachine {
 
 	public void useVendingMachine() {
 		System.out.println("Welcome to your local Coca Cola vending machine!\n" 
-				+ "'DISPLAY:' indicates the vending machine's LED readout at at the time\n"
+				+ "'DISPLAY:' indicates the vending machine's LED readout at the time.\n"
 				+ "A list of possible actions follows.\n"
-				+ "This list will reappear after every 5 actions.\n");
+				+ "This list will reappear after every 10 actions.\n");
 		System.out.println("Enter 1 to Insert Quarters into Coin Slot\n"
 				+ "Enter 2 to Insert Dimes into Coin Slot\n"
 				+ "Enter 3 to Insert Nickels into Coin Slot\n"
@@ -85,7 +85,9 @@ public class VendingMachine {
 			changeLight.showLight();
 		
 		machineLED.displayCustom("Welcome!");
+		System.out.println("Enter next command.");
 		
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
 		Integer choice = in.nextInt();
 		Integer count = 0;
@@ -94,7 +96,7 @@ public class VendingMachine {
 			
 			count++;
 			if ((count%10)==0) {
-				System.out.println("1) Add quarters\n"
+				System.out.println("\n1) Add quarters\n"
 						+ "2) Add dimes\n"
 						+ "3) Add nickels\n"
 						+ "4) Add bills\n"
@@ -106,12 +108,12 @@ public class VendingMachine {
 						+ "10) Fanta Orange\n"
 						+ "11) Fanta Grape\n"
 						+ "12) Barqs\n"
-						+ "13) Mello Yello");
+						+ "13) Mello Yello\n");
 			}
 			switch (choice) {
 			case 1:{
 				System.out.println("Enter the number of quarters you would like to "
-						+ "insert as a single integer:\n");
+						+ "insert as a single integer:");
 				Integer quarters = in.nextInt();
 				coinSlot.insertQuarters(quarters);
 				machineLED.displayMoneyIn();
@@ -119,21 +121,21 @@ public class VendingMachine {
 			}
 			case 2:{
 				System.out.println("Enter the number of dimes you would like to "
-						+ "insert as a single integer:\n");
+						+ "insert as a single integer:");
 				coinSlot.insertDimes(in.nextInt());
 				machineLED.displayMoneyIn();
 				break;
 			}
 			case 3:{
-				System.out.println("Enter the number of nickels you would like to"
-						+ "insert as a single integer");
+				System.out.println("Enter the number of nickels you would like to "
+						+ "insert as a single integer:");
 				coinSlot.insertNickels(in.nextInt());
 				machineLED.displayMoneyIn();
 				break;
 			}
 			case 4:{
 				System.out.println("Enter the number of dollar bills you would like to "
-						+ "insert as a single integer:\n");
+						+ "insert as a single integer:");
 				billSlot.insertBills(in.nextInt());
 				machineLED.displayMoneyIn();
 				break;
@@ -272,13 +274,13 @@ public class VendingMachine {
 				break;
 			}
 			default:{
-				System.out.println("Command not recognized, try again.\n");
+				System.out.println("Command not recognized, try again.");
 				machineLED.displayCustom("Welcome!");
 				break;
 			}
 			}
 			
-			System.out.println("Enter next command.\n");
+			System.out.println("Enter next command.");
 			
 			if (!changeLight.isExactChangeAvailable())
 				changeLight.switchLightOn();
@@ -289,7 +291,7 @@ public class VendingMachine {
 			
 			choice = in.nextInt();
 		}
-		in.close();
+		//in.close();
 		machineLED.displayCustom("Welcome!");
 		System.out.println("Thank you for your business, have a nice day!");
 	}

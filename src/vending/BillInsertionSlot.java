@@ -15,7 +15,7 @@ public class BillInsertionSlot {
 				nativeDepositBox.setBillsEntered(1);
 			}
 			else {
-				System.out.println("The bill insertion slot spit back " + (bills-i) + " bills because money "
+				System.out.println("The bill insertion slot spit back " + (bills-i) + " bill(s) because money "
 						+"entered already exceeds maximum transaction cost.");
 				break;
 			}

@@ -14,7 +14,7 @@ public class ChangeBox extends CoinBox {
 	}
 	
 	public void giveChange(Double amountToReturn) {
-		Integer cents = (int) (100*amountToReturn);
+		Integer cents = (int) (Math.round(100*amountToReturn));		
 		Integer potentialQ, potentialD, potentialN, rest;
 		Integer actualQ, actualD, actualN;
 		
@@ -26,8 +26,9 @@ public class ChangeBox extends CoinBox {
 			actualQ = this.getQuarters();
 		
 		this.setQuarters(-actualQ);
-		rest = cents-(25*actualQ);
 		
+		rest = cents-(25*actualQ);
+
 		potentialD = rest/10;
 		
 		if(potentialD <= this.getDimes())
@@ -54,7 +55,7 @@ public class ChangeBox extends CoinBox {
 	}
 	
 	public boolean ableToGiveChange(Double amountToReturn) {
-		Integer cents = (int) (100*amountToReturn);
+		Integer cents = (int) (Math.round(100*amountToReturn));
 		Integer potentialQ, potentialD, potentialN, rest;
 		Integer actualQ, actualD, actualN;
 		
